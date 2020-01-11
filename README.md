@@ -1,2 +1,2 @@
 # RedBot
-A Discord Bot
+A bot in Portuguese made to test the discord api
