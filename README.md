@@ -1,0 +1,2 @@
+# RedBot
+A Discord Bot
