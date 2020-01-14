@@ -6,10 +6,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Command {
+public @interface SubCommand {
     String name();
     String description();
-    CommandCategory commandCategory();
     String args();
-    UserPermission commandPermission();
+    UserPermission permission();
 }

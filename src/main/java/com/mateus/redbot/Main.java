@@ -1,9 +1,11 @@
 package com.mateus.redbot;
 
 import com.mateus.redbot.command.MemeGenerator;
+import com.mateus.redbot.command.PermissionCommand;
 import com.mateus.redbot.command.Say;
 import com.mateus.redbot.core.command.CommandManager;
 import com.mateus.redbot.core.config.ConfigManager;
+import com.mateus.redbot.core.data.DataManager;
 import com.mateus.redbot.listener.MessageListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -15,11 +17,13 @@ import javax.security.auth.login.LoginException;
 
 public class Main {
     public static void main(String[] args) {
+        DataManager dataManager = DataManager.getInstance();
         Logger logger = JDALogger.getLog("RedBot");
         logger.info("O Bot está iniciando!");
         ConfigManager configManager = ConfigManager.getInstance();
         logger.info("Iniciando config...");
         configManager.setup();
+        dataManager.setup();
         try {
             JDABuilder jdaBuilder = new JDABuilder((String) configManager.getConfig().get("token"));
             registerCommands(CommandManager.getInstance());
@@ -29,6 +33,8 @@ public class Main {
             } else jdaBuilder.setActivity(Activity.playing(status));
             JDA jda = jdaBuilder.build();
             jda.addEventListener(new MessageListener());
+            System.out.println(jda.getGuilds().size());
+            System.out.println(jda.getUsers().size());
         } catch (LoginException e) {
             e.printStackTrace();
         }
@@ -36,5 +42,6 @@ public class Main {
     private static void registerCommands(CommandManager commandManager) {
         commandManager.registerCommand(Say.class);
         commandManager.registerCommand(MemeGenerator.class);
+        commandManager.registerCommand(PermissionCommand.class);
     }
 }

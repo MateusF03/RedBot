@@ -3,6 +3,7 @@ package com.mateus.redbot.command;
 import com.mateus.redbot.core.command.Command;
 import com.mateus.redbot.core.command.CommandCategory;
 import com.mateus.redbot.core.config.ConfigManager;
+import com.mateus.redbot.core.permissions.UserPermission;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import org.json.simple.JSONObject;
@@ -17,7 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class MemeGenerator {
-    @Command(name = "meme", description = "Cria um meme baseado no input do usúario", commandCategory = CommandCategory.FUN, args = "(id do meme) (texto 1-texto 2)")
+    @Command(name = "meme", description = "Cria um meme baseado no input do usúario", commandCategory = CommandCategory.FUN, args = "(id do meme) (texto 1-texto 2)", commandPermission = UserPermission.BASE)
     public static void meme(GuildMessageReceivedEvent event, String[] args) {
         String idMeme = args[0];
         StringBuilder stringBuilder = new StringBuilder();
