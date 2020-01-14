@@ -37,6 +37,8 @@ public class ConfigManager {
                 this.configJson.put("ownerID", "none");
                 this.configJson.put("imgflip-username", "none");
                 this.configJson.put("imgflip-password", "none");
+                this.configJson.put("mongodb-password", "none");
+                this.configJson.put("mongodb-username", "none");
                 fileWriter.write(this.configJson.toJSONString());
                 fileWriter.flush();
                 JDALogger.getLog("RedBot").info("Criando o template da config, o bot agora vai desligar");
