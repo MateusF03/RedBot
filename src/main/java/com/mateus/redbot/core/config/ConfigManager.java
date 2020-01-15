@@ -60,4 +60,7 @@ public class ConfigManager {
     public JSONObject getConfig() {
         return configJson;
     }
+    public String getPrefix() {
+        return (String) configJson.get("prefix");
+    }
 }
