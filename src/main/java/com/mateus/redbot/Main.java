@@ -1,5 +1,6 @@
 package com.mateus.redbot;
 
+import com.mateus.redbot.command.Help;
 import com.mateus.redbot.command.MemeGenerator;
 import com.mateus.redbot.command.PermissionCommand;
 import com.mateus.redbot.command.Say;
@@ -33,8 +34,6 @@ public class Main {
             } else jdaBuilder.setActivity(Activity.playing(status));
             JDA jda = jdaBuilder.build();
             jda.addEventListener(new MessageListener());
-            System.out.println(jda.getGuilds().size());
-            System.out.println(jda.getUsers().size());
         } catch (LoginException e) {
             e.printStackTrace();
         }
@@ -43,5 +42,6 @@ public class Main {
         commandManager.registerCommand(Say.class);
         commandManager.registerCommand(MemeGenerator.class);
         commandManager.registerCommand(PermissionCommand.class);
+        commandManager.registerCommand(Help.class);
     }
 }

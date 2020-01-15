@@ -5,15 +5,16 @@ import com.mateus.redbot.core.command.CommandCategory;
 import com.mateus.redbot.core.config.ConfigManager;
 import com.mateus.redbot.core.data.DataManager;
 import com.mateus.redbot.core.permissions.UserPermission;
+import com.mateus.redbot.utils.BotUtils;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class PermissionCommand {
 
-    @Command(name = "perm", description = "Muda a permissão de um usuário", commandCategory = CommandCategory.GUILD, args = "(usuário) (permissão)", commandPermission = UserPermission.ADMIN)
+    @Command(name = "perm", description = "Muda a permissão de um usuário", commandCategory = CommandCategory.GUILD, args = "(usuário) (permissão)", commandPermission = UserPermission.BASE)
     public static void perm(GuildMessageReceivedEvent event, String[] args) {
         DataManager dataManager = DataManager.getInstance();
-        if (dataManager.getUserGuildPermission(event.getAuthor(), event.getGuild()) == UserPermission.ADMIN || event.getAuthor().getId().equals(ConfigManager.getInstance().getConfig().get("ownerID"))) {
+        if (BotUtils.hasGuildPermission(event.getAuthor(), UserPermission.ADMIN, event.getGuild()) || event.getGuild().getOwnerIdLong() == event.getAuthor().getIdLong()) {
             String userArg = args[0];
             User user = null;
             long id = 0;
