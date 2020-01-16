@@ -65,7 +65,6 @@ public class Help {
                     helpMap.get(BotUtils.getCommandByName(i).getCommandCategory().toString()).add(BotUtils.getCommandByName(i));
                 }
             }
-            System.out.println(cmdNames.size());
             String description = "";
             for (String i : helpMap.keySet()) {
                 description = description + "\n**" + i + "**: ";
