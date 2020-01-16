@@ -60,7 +60,7 @@ public class Help {
             HashMap<String, List<CommandObject>> helpMap = new HashMap<>();
             List<String> cmdNames = CommandManager.getInstance().getCommandObjects().stream().map(CommandObject::getName).collect(Collectors.toList());
             for (String i: cmdNames) {
-                if (!BotUtils.getCommandByName(i).getCommandCategory().toString().equals("")) {
+                if (BotUtils.getCommandByName(i).getCommandCategory() != null) {
                     helpMap.computeIfAbsent(BotUtils.getCommandByName(i).getCommandCategory().toString(), k -> new ArrayList<>());
                     helpMap.get(BotUtils.getCommandByName(i).getCommandCategory().toString()).add(BotUtils.getCommandByName(i));
                 }

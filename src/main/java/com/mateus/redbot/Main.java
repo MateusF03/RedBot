@@ -1,9 +1,6 @@
 package com.mateus.redbot;
 
-import com.mateus.redbot.command.Help;
-import com.mateus.redbot.command.MemeGenerator;
-import com.mateus.redbot.command.PermissionCommand;
-import com.mateus.redbot.command.Say;
+import com.mateus.redbot.command.*;
 import com.mateus.redbot.core.command.CommandManager;
 import com.mateus.redbot.core.config.ConfigManager;
 import com.mateus.redbot.core.data.DataManager;
@@ -43,5 +40,6 @@ public class Main {
         commandManager.registerCommand(MemeGenerator.class);
         commandManager.registerCommand(PermissionCommand.class);
         commandManager.registerCommand(Help.class);
+        commandManager.registerCommand(DeviantArtCommand.class);
     }
 }
