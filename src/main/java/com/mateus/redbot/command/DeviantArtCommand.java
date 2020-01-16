@@ -62,13 +62,7 @@ public class DeviantArtCommand {
                 return;
             }
             sendArt(event.getChannel(), randomArt);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
     }
@@ -105,9 +99,7 @@ public class DeviantArtCommand {
             String authorName = (String) jsonObject.get("author_name");
             embedBuilder.setDescription("**Autor:** "+ "`" + authorName + "`\n" +"**Views:** " + "`" + views + "`\n" + "**Favoritos:** " + "`" + favorites + "`\n" + "**Comentários:** " + "`" + comments + "`\n" + "**Downloads:** " + "`" + downloads + "`");
             event.getChannel().sendMessage(embedBuilder.build()).queue();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
 

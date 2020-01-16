@@ -50,11 +50,7 @@ public class MemeGenerator {
             embedBuilder.setAuthor("Meme gerado pela API do ImgFlip");
             embedBuilder.setFooter("Comando pedido por: " + event.getAuthor().getAsTag());
             embedBuilder.setImage(memeUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
         event.getChannel().sendMessage(embedBuilder.build()).queue();

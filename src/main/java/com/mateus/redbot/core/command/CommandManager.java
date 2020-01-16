@@ -88,9 +88,7 @@ public class CommandManager {
                         }
                         try {
                             subCommand.getMethod().invoke(null, event, args);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace();
-                        } catch (InvocationTargetException e) {
+                        } catch (IllegalAccessException | InvocationTargetException e) {
                             e.printStackTrace();
                         }
                         return;
@@ -113,9 +111,7 @@ public class CommandManager {
                 }
                 try {
                     commandObject.getCommand().invoke(null, event, args);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
+                } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
                 break;
