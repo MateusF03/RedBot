@@ -2,7 +2,6 @@ package com.mateus.redbot.command;
 
 import com.mateus.redbot.core.command.Command;
 import com.mateus.redbot.core.command.CommandCategory;
-import com.mateus.redbot.core.config.ConfigManager;
 import com.mateus.redbot.core.data.DataManager;
 import com.mateus.redbot.core.permissions.UserPermission;
 import com.mateus.redbot.utils.BotUtils;
