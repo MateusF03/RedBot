@@ -17,4 +17,5 @@ dependencies {
     compile "net.dv8tion:JDA:4.1.0_81"
     compile 'com.googlecode.json-simple:json-simple:1.1.1'
     compile 'org.mongodb:mongo-java-driver:3.6.3'
+    compile 'org.apache.commons:commons-lang3:3.9'
 }

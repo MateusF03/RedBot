@@ -28,5 +28,10 @@ public class BotUtils {
         }
         return null;
     }
+    public static String capitalizeFirst(String text) {
+        String result = text.substring(1);
+        result = Character.toUpperCase(text.charAt(0)) + result;
+        return result;
+    }
 }
 

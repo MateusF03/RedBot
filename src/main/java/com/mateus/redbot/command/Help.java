@@ -72,6 +72,7 @@ public class Help {
                     description = description + "`" + c.getName() + "`, ";
                 }
                 description = description.substring(0, description.length() - 2);
+
             }
             description = description+String.format("\n\nPara informação de um comando especifico, use %shelp (comando)", ConfigManager.getInstance().getPrefix());
             EmbedBuilder embedBuilder = new EmbedBuilder();

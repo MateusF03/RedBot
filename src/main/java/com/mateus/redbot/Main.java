@@ -41,5 +41,7 @@ public class Main {
         commandManager.registerCommand(PermissionCommand.class);
         commandManager.registerCommand(Help.class);
         commandManager.registerCommand(DeviantArtCommand.class);
+        commandManager.registerCommand(GuildInfo.class);
+        commandManager.registerCommand(UserInfo.class);
     }
 }
