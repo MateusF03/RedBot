@@ -77,5 +77,19 @@ public class DataManager {
         Bson updateOperation = new Document("$set", updateValue);
         collection.updateOne(document, updateOperation);
     }
+    public void updateUserMoney(User user, long money) {
+        if (!containsUserMoney(user)) return;
+        MongoCollection<Document> collection = mongoDatabase.getCollection("userMoney");
+        Document document = collection.find(new Document("userID", user.getId())).first();
+        Bson updateMoney = new Document("money", money);
+        Bson updateOperation = new Document("$set", updateMoney);
+        collection.updateOne(document, updateOperation);
+    }
+    public long getUserMoney(User user) {
+        if (!containsUserMoney(user)) return 0;
+        MongoCollection<Document> collection = mongoDatabase.getCollection("userMoney");
+        Document document = collection.find(new Document("userID", user.getId())).first();
+        return (long) document.get("money");
+    }
 }
 

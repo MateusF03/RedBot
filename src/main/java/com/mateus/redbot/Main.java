@@ -3,6 +3,7 @@ package com.mateus.redbot;
 import com.mateus.redbot.command.*;
 import com.mateus.redbot.core.command.CommandManager;
 import com.mateus.redbot.core.config.ConfigManager;
+import com.mateus.redbot.core.data.DailyManager;
 import com.mateus.redbot.core.data.DataManager;
 import com.mateus.redbot.listener.MessageListener;
 import net.dv8tion.jda.api.JDA;
@@ -22,6 +23,7 @@ public class Main {
         logger.info("Iniciando config...");
         configManager.setup();
         dataManager.setup();
+        DailyManager.get().setup();
         try {
             JDABuilder jdaBuilder = new JDABuilder((String) configManager.getConfig().get("token"));
             registerCommands(CommandManager.getInstance());
@@ -43,5 +45,10 @@ public class Main {
         commandManager.registerCommand(DeviantArtCommand.class);
         commandManager.registerCommand(GuildInfo.class);
         commandManager.registerCommand(UserInfo.class);
+        commandManager.registerCommand(DailyCommand.class);
+        commandManager.registerCommand(RateCommand.class);
+        commandManager.registerCommand(SamCommand.class);
+        commandManager.registerCommand(AvatarCommand.class);
+        commandManager.registerCommand(GataCommand.class);
     }
 }

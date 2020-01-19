@@ -8,10 +8,13 @@ import com.mateus.redbot.core.permissions.UserPermission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
 
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BotUtils {
+    private static File cacheFolder = new File(System.getProperty("user.dir") + "/cache");
+    private static File imagesFolder = new File(System.getProperty("user.dir") + "/images");
     public static boolean isOwner(User user) {
         return user.getId().equals(ConfigManager.getInstance().getConfig().get("ownerID"));
     }
@@ -32,6 +35,14 @@ public class BotUtils {
         String result = text.substring(1);
         result = Character.toUpperCase(text.charAt(0)) + result;
         return result;
+    }
+    public static File getCacheFolder() {
+        if (!cacheFolder.exists()) cacheFolder.mkdirs();
+        return cacheFolder;
+    }
+    public static File getImagesFolder() {
+        if (!imagesFolder.exists()) imagesFolder.mkdirs();
+        return imagesFolder;
     }
 }
 
