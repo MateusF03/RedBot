@@ -78,7 +78,7 @@ public class CommandManager {
                                 .split("\n")).map(Boolean::valueOf).collect(Collectors.toList());
                         for (int i = 0; i<arguments.size(); i++) {
                             if (arguments.get(i) && args.length < i + 1) {
-                                event.getChannel().sendMessage("**Erro, argumentos invalidos**\n *O uso correto é:* `" + prefix + subCommand.getName() + " " + subCommand.getArgs() + "`").queue();
+                                event.getChannel().sendMessage("**Erro, argumentos invalidos**\n *O uso correto é:* `" + prefix + commandObject.getName() + " " + subCommand.getName() + " " + subCommand.getArgs() + "`").queue();
                                 return;
                             }
                         }

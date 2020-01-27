@@ -6,6 +6,7 @@ import com.mateus.redbot.core.config.ConfigManager;
 import com.mateus.redbot.core.data.DailyManager;
 import com.mateus.redbot.core.data.DataManager;
 import com.mateus.redbot.listener.MessageListener;
+import com.mateus.redbot.utils.UserInputScheduler;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -15,6 +16,7 @@ import org.slf4j.Logger;
 import javax.security.auth.login.LoginException;
 
 public class Main {
+    public static JDA jda;
     public static void main(String[] args) {
         DataManager dataManager = DataManager.getInstance();
         Logger logger = JDALogger.getLog("RedBot");
@@ -31,8 +33,9 @@ public class Main {
             if ((boolean) configManager.getConfig().get("streaming")) {
                 jdaBuilder.setActivity(Activity.streaming(status, null));
             } else jdaBuilder.setActivity(Activity.playing(status));
-            JDA jda = jdaBuilder.build();
+            jda = jdaBuilder.build();
             jda.addEventListener(new MessageListener());
+            jda.addEventListener(new UserInputScheduler());
         } catch (LoginException e) {
             e.printStackTrace();
         }
@@ -50,5 +53,10 @@ public class Main {
         commandManager.registerCommand(SamCommand.class);
         commandManager.registerCommand(AvatarCommand.class);
         commandManager.registerCommand(GataCommand.class);
+        commandManager.registerCommand(Ojjo.class);
+        commandManager.registerCommand(JpegCommand.class);
+        commandManager.registerCommand(KickCommand.class);
+        commandManager.registerCommand(TicTacToeCommand.class);
+        commandManager.registerCommand(B64Command.class);
     }
 }

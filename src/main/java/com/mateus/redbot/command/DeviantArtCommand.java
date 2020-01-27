@@ -37,6 +37,7 @@ public class DeviantArtCommand {
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             URLConnection urlConnection = new URL("https://backend.deviantart.com/rss.xml?type=deviation&q=boost%3Apopular%2Fdrawings+" + search).openConnection();
+            urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0");
             Document doc = db.parse(urlConnection.getInputStream());
             Element element = doc.getDocumentElement();
             NodeList nodeList = element.getChildNodes();

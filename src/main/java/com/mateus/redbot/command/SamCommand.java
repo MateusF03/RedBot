@@ -44,11 +44,7 @@ public class SamCommand {
                 event.getChannel().sendFile(imageFile, "teste.png").queue();
                 imageFile.delete();
                 file.delete();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
+            } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         } else {

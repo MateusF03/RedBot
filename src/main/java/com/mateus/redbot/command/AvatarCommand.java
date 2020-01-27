@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.awt.*;
 
 public class AvatarCommand {
-    @Command(name = "avatar", description = "Pega o avatar de um usuário", commandCategory = CommandCategory.INFO, args = "(usuário)", commandPermission = UserPermission.BASE)
+    @Command(name = "avatar", description = "Pega o avatar de um usuário", commandCategory = CommandCategory.INFO, args = "[usuário]", commandPermission = UserPermission.BASE)
     public static void avatar(GuildMessageReceivedEvent event, String[] args) {
         if (args.length >= 1) {
             User user;
